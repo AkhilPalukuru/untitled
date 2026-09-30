@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FixFishers — Community Repair</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <div class="app-layout">
+    
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+    <aside class="sidebar">
+      
+      <div class="sidebar-header">
+        <div class="brand">
+          <span class="brand-mark">F+</span>
+          <div class="brand-text">
+            <span>FixFishers</span>
+            <span class="brand-sub">Community Repair</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEARCH BAR -->
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search reports or location..."
+        >
+      </div>
+
+      <!-- RECENT REPORTS SECTION -->
+      <div class="reports-section-header">
+        <h3>Recent Reports</h3>
+        <span id="reportsCount" class="reports-count">0 issues in Fishers</span>
+      </div>
+
+      <div id="reportsList" class="reports-list">
+        <!-- Report list items will render here dynamically -->
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="reportButton" class="report-button">
+          + Report New Issue
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- =========================================
+         MAP CONTAINER
+    ========================================== -->
+    <main class="map-container">
+      <div id="map"></div>
+    </main>
+
+  </div>
+
+
+  <!-- =========================================
+       REPORT MODAL
+  ========================================== -->
+  <div id="reportOverlay" class="report-overlay">
+    <div class="report-panel">
+
+      <button id="closeReport" class="close-report">×</button>
+
+      <p class="eyebrow">NEW COMMUNITY REPORT</p>
+      <h2>What needs fixing?</h2>
+      <p class="report-subtitle">Tell Fishers about an issue you've noticed.</p>
+
+      <label for="issueTitle">Report Title</label>
+      <input type="text" id="issueTitle" placeholder="e.g. Pothole on 116th St">
+
+      <label for="issueType">Issue type</label>
+      <select id="issueType">
+        <option value="Pothole / road damage">Pothole / road damage</option>
+        <option value="Broken streetlight">Broken streetlight</option>
+        <option value="Flooding / drainage">Flooding / drainage</option>
+        <option value="Fallen tree">Fallen tree</option>
+        <option value="Damaged sidewalk">Damaged sidewalk</option>
+        <option value="Broken sign">Broken sign</option>
+        <option value="Park issue">Park issue</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="issueSeverity">Severity</label>
+      <select id="issueSeverity">
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+        <option value="Critical">Critical</option>
+      </select>
+
+      <label for="issueImage">Photo of the issue</label>
+      <input type="file" id="issueImage" accept="image/*">
+      <p class="image-help">Upload a photo showing the repair that is needed.</p>
+      <div id="imagePreview" class="image-preview"></div>
+
+      <label for="issueDescription">Description</label>
+      <textarea id="issueDescription" placeholder="Describe what you noticed..." rows="3"></textarea>
+
+      <button id="chooseLocation" class="location-button">
+        📍 Choose location on map
+      </button>
+      <p id="locationStatus" class="location-status">Location not selected</p>
+
+      <button id="submitReport" class="submit-report">Submit report →</button>
+
+    </div>
+  </div>
+
+</body>
+</html>
