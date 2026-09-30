@@ -47,11 +47,11 @@
       </div>
 
       <div id="reportsList" class="reports-list">
-        <!-- Report list items will render here dynamically -->
+        <!-- Dynamic content -->
       </div>
 
       <div class="sidebar-footer">
-        <button id="reportButton" class="report-button">
+        <button type="button" id="reportButton" class="report-button">
           + Report New Issue
         </button>
       </div>
@@ -74,49 +74,52 @@
   <div id="reportOverlay" class="report-overlay">
     <div class="report-panel">
 
-      <button id="closeReport" class="close-report">×</button>
+      <button type="button" id="closeReport" class="close-report">×</button>
 
       <p class="eyebrow">NEW COMMUNITY REPORT</p>
       <h2>What needs fixing?</h2>
       <p class="report-subtitle">Tell Fishers about an issue you've noticed.</p>
 
-      <label for="issueTitle">Report Title</label>
-      <input type="text" id="issueTitle" placeholder="e.g. Pothole on 116th St">
+      <!-- WRAPPED IN FORM TO FIX SUBMISSION HANDLERS -->
+      <form id="reportForm">
+        <label for="issueTitle">Report Title</label>
+        <input type="text" id="issueTitle" placeholder="e.g. Pothole on 116th St">
 
-      <label for="issueType">Issue type</label>
-      <select id="issueType">
-        <option value="Pothole / road damage">Pothole / road damage</option>
-        <option value="Broken streetlight">Broken streetlight</option>
-        <option value="Flooding / drainage">Flooding / drainage</option>
-        <option value="Fallen tree">Fallen tree</option>
-        <option value="Damaged sidewalk">Damaged sidewalk</option>
-        <option value="Broken sign">Broken sign</option>
-        <option value="Park issue">Park issue</option>
-        <option value="Other">Other</option>
-      </select>
+        <label for="issueType">Issue type</label>
+        <select id="issueType">
+          <option value="Pothole / road damage">Pothole / road damage</option>
+          <option value="Broken streetlight">Broken streetlight</option>
+          <option value="Flooding / drainage">Flooding / drainage</option>
+          <option value="Fallen tree">Fallen tree</option>
+          <option value="Damaged sidewalk">Damaged sidewalk</option>
+          <option value="Broken sign">Broken sign</option>
+          <option value="Park issue">Park issue</option>
+          <option value="Other">Other</option>
+        </select>
 
-      <label for="issueSeverity">Severity</label>
-      <select id="issueSeverity">
-        <option value="Low">Low</option>
-        <option value="Medium" selected>Medium</option>
-        <option value="High">High</option>
-        <option value="Critical">Critical</option>
-      </select>
+        <label for="issueSeverity">Severity</label>
+        <select id="issueSeverity">
+          <option value="Low">Low</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="High">High</option>
+          <option value="Critical">Critical</option>
+        </select>
 
-      <label for="issueImage">Photo of the issue</label>
-      <input type="file" id="issueImage" accept="image/*">
-      <p class="image-help">Upload a photo showing the repair that is needed.</p>
-      <div id="imagePreview" class="image-preview"></div>
+        <label for="issueImage">Photo of the issue</label>
+        <input type="file" id="issueImage" accept="image/*">
+        <p class="image-help">Upload a photo showing the repair that is needed.</p>
+        <div id="imagePreview" class="image-preview"></div>
 
-      <label for="issueDescription">Description</label>
-      <textarea id="issueDescription" placeholder="Describe what you noticed..." rows="3"></textarea>
+        <label for="issueDescription">Description</label>
+        <textarea id="issueDescription" placeholder="Describe what you noticed..." rows="3"></textarea>
 
-      <button id="chooseLocation" class="location-button">
-        📍 Choose location on map
-      </button>
-      <p id="locationStatus" class="location-status">Location not selected</p>
+        <button type="button" id="chooseLocation" class="location-button">
+          📍 Choose location on map
+        </button>
+        <p id="locationStatus" class="location-status">Location not selected</p>
 
-      <button id="submitReport" class="submit-report">Submit report →</button>
+        <button type="submit" id="submitReport" class="submit-report">Submit report →</button>
+      </form>
 
     </div>
   </div>
